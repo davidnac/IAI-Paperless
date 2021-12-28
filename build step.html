@@ -1,0 +1,637 @@
+<html>
+    <header>
+        <title>Operations managment</title>
+          <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
+
+        <style>
+            @import url(&#39;https://fonts.googleapis.com/css2?family=Montserrat:wght@300&amp;display=swap&#39;);
+
+                html{
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f6f7fb;
+                    height: 92vh;
+                    font-family: 'Montserrat', sans-serif;
+                   }
+
+                body{
+                    height: 100%;
+                    padding: 0;
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+                    text-transform: uppercase;
+                    background-color: #f6f7fb;
+                }
+                
+                .table-box{
+                    margin: 50px auto;
+                }
+                .table-row{
+                    background-color: white;
+                    border-radius: 5px;
+                    display: table;
+                    width: 80%;
+                    margin: 6px auto;
+                    padding: 12px;
+                    color: #555;
+                    font-size: 14px;
+                    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
+                }
+                .table-row.item:hover{
+                    cursor: pointer;
+                    background-color: #71DFE7;
+                }
+                .table-cell{
+                    display: table-cell;
+                    text-align: start;
+                    padding: 4px 0;
+                    border-right: 1px solid black;
+                    vertical-align: middle;
+                    background-color: inherit;
+                }
+
+                .table-head{
+                    background-color: #396EB0;
+                    box-shadow: none;
+                    color: white;
+                    font-weight: 600;
+                }
+
+                .table-head .table-cell{
+                    border-right: none;
+                }
+
+                p{
+                    background-color: inherit;
+                }
+                /*-----------------*/
+
+                .step-card{
+                    margin: 25px;
+                    margin-top: 26px;
+                    width: 90%;
+                    padding: 20px;
+                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+                    background-color: white;
+                    border-radius: 0;
+                    border-top: 2px solid #0079c1;
+                }
+
+                .step-card h4{
+                    margin-bottom: 26px;
+                }
+
+                .step-card p{
+                    margin-bottom: 8px;
+                }
+
+                .step-card span{
+                    font-weight: 600;
+                    color: #0079c1;
+                }
+
+                .styled-table {
+                border-collapse: collapse;
+                margin: 25px;
+                font-size: 14px;
+                width: 93%;
+                border-radius: 7px 7px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+                background-color: white;
+                margin-top: 24px;
+              }
+
+              .styled-table thead th {
+              background-color: #0079c1;
+              color: #ffffff;
+              text-align: start;
+              text-transform: uppercase;
+             }
+
+
+              .styled-table tbody tr{
+              background-color: white;
+             }
+
+             .styled-table tr th,
+            .styled-table td {
+             padding: 15px 20px;
+             text-align: start;
+            }
+
+            tr td{
+                background-color: inherit;
+            }
+
+           
+
+            .styled-table tbody tr {
+               border-bottom: 3px solid #dddddd;
+            }
+
+            /*
+            .styled-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }*/
+
+            .styled-table tbody tr:last-of-type {
+                border-bottom: 2px solid #396EB0;
+            }
+
+            .styled-table tbody tr.active-row {
+                font-weight: bold;
+                color: black;
+                background-color: #f6f7fb;
+                border-left: 8px solid #396EB0;
+            }
+
+            .styled-table tbody tr:hover{
+                background-color: #d6d3d2;
+                cursor: pointer;
+            }
+
+            .status-finished{
+                color: #29ab87;
+                font-weight: bold;
+            }
+            .status-running{
+                color: orange;
+                font-weight: bold;
+            }
+            .status-failed{
+                color: #cd5c5c;
+                font-weight: bold;
+            }
+            /*-------------------*/
+            .top-bar{
+                margin-bottom: 16px;
+                margin-left: 25px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 93%;
+            }
+
+         
+
+            input{
+                width: 300px;
+                height: 40px;
+                border-radius: 4px;
+                font-size: 16px; 
+                padding: 12px 20px 12px 20px; 
+                border: 1px solid #396EB0; 
+                margin-top: 5px;
+            }
+
+            .top-bar .buttons{
+                display: flex;
+                flex-direction: row;
+                vertical-align: middle;
+                margin-right: 20px;
+            }
+
+            .buttons a{
+                margin: 8px 12px 8px 12px;
+                text-decoration: none;
+                color: #396EB0;
+                font-size: 15px;    
+                font-weight: bold;
+            }
+
+            .buttons a:hover{
+                color: #3895D3;
+                font-size: 16px;    
+            }
+
+            /*-----------------*/
+
+            .card-container{
+                height: 90%;
+                display: flex;
+                padding-bottom: 0;
+                }
+
+               
+                .card-container .items-container{
+                flex: 4;
+               /* height: 100%;
+                overflow-y: auto;*/
+                }
+
+                .card-container .content-container{
+                flex: 8;
+               /* height: 100%;
+                overflow-y: auto;*/
+                }
+
+               .projects table{
+                   margin-top: 44px;
+                   width: 90%;
+                   overflow-y: auto;
+                   border-radius: 7px 7px 0 0;
+                   overflow: hidden;
+               }
+
+               .projects table thead th {
+                background-color: #1DE9B6;
+                color: black;
+               }
+
+               .projects table tbody tr:last-of-type {
+                border-bottom: 2px solid #1DE9B6;
+               }
+            
+                .projects-header{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 20px;
+                vertical-align: middle;
+               }
+
+               .projects-header p{
+                margin: 0;
+                font-size: 15px;
+                font-weight: bold;
+                vertical-align: middle;
+               }
+
+               .projects-header a{
+                color: black;
+                text-decoration: none;
+               }
+
+               .projects-header a:hover{
+                cursor: pointer;
+                color: white;
+               }
+
+              
+               .fixTableHead {
+                overflow-y: auto;
+                height: 100%;
+                }
+
+                .header-container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                }
+
+                .header-container p{
+                  margin: 0;
+                  display: inline-block;
+                }
+
+                .header-container:hover{
+                 cursor: pointer;
+                 color: black;
+                }
+
+               
+                 .extra-wide{
+                  margin:0 30px 0 30px;
+                 }
+
+                 .delete-btn-container{
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: end;
+                 }
+
+
+                 .step-card .delete-button{
+                    background-color: #f50057;
+                    color: white;
+                    font-weight: 500;
+                    font-size: 14px;
+                    margin-top: 30px;
+                    padding: 6px 12px 6px 12px;
+                    border-radius: 4px;
+                    border: none;
+                  }
+
+                  .step-card .delete-button:hover{
+                    background-color: #ad1457;
+                  }
+
+                 .step-card .projects-header a:hover{
+                  color: #ad1457;
+                 }
+
+                 
+  /*-------------navbar----------------*/
+ 
+  .control-bar{
+                   width: 100%;
+                   height: 66px;
+                   background-color: #212529;
+                   display: flex;
+                   flex-direction: row;
+                   justify-content: space-between;
+                   box-sizing: border-box;
+                   overflow: hidden;
+                   text-transform: uppercase;
+                   color: white;
+                   padding-left: 20px;
+                 }
+
+                 .control-bar a{
+                     font-size: 32px;
+                     margin: auto 22px;
+                     text-decoration: none;
+                     color: white;
+                     cursor: pointer;
+                 }
+
+                 .control-bar a:hover {
+                    color: #00adb5;
+                 }
+
+                 .control-bar .text{
+                     font-size: 15px;
+                     margin: auto 12px;
+                     text-decoration: none;
+                 }
+
+                 .control-bar .signout{
+                     font-size: 15px;
+                     background-color: #00adb5;
+                     border-radius: 22px;
+                     padding: 6px 15px;
+                     margin-right: 22px ;
+                 }
+
+                 .control-bar .signout:hover {
+                    background-color: #047e85;
+                    color: white;
+                 }
+
+                 .control-bar .navbar-cont{
+                    height: 100%;
+                    overflow: hidden;
+                    padding: 8px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: start;
+                    vertical-align: middle;
+                 }
+
+                 .control-bar .navbar-cont .input-container input{
+                    margin: 5px 5px 5px 0;
+                    width: 280px;
+                 }
+                /*-------------navbar----------------*/
+
+        </style>
+
+    </header>
+    <body>
+
+        <div class="control-bar">
+            <div class="navbar-cont">
+                <span class="input-container">
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for an operation...">
+                </span>
+            <!-- <a class="text">Operations management</a>-->
+            </div>
+            <div class="navbar-cont">
+                <a class="text signout" data-bs-target="#modalForm" data-bs-toggle="modal" href=''>CREATE NEW OPERATION</a>
+               <!-- <a href="login.html" class="text signout">Sign out</a>-->
+            </div>
+          </div>
+
+    <div class="card-container">
+   
+            <div class="items-container">
+                
+                <div class="fixTableHead">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Operation name</th>
+                                <th>Operation id</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr >
+                                <td>Part Inspection</td>  
+                                <td>16722</td>
+                            </tr>
+                            <tr class="active-row">
+                                <td>Remove coating</td>
+                                <td>16723</td>  
+                            </tr>
+                            <tr >
+                            
+                                <td>weld cracks</td>
+                                <td>16724</td>      
+                            </tr>
+                            <tr>
+                                <td>Water jet</td> 
+                                <td>16725</td>  
+                            </tr>
+                            <tr>
+                                <td>Plasma coating</td> 
+                                <td>16726</td>  
+                            </tr>
+                            <tr>
+                                <td>Heat treat</td>  
+                                <td>16727</td> 
+                            </tr>
+                            <tr>
+                                <td>NDT</td>  
+                                <td>16712</td> 
+                            </tr>
+                            <tr>
+                                <td>Rubber & glue</td>  
+                                <td>16332</td> 
+                            </tr>
+                            
+
+                        </tbody>
+                    </table>
+                </div>     
+            </div>
+
+            <div class="content-container">
+              
+                    <div class="step-card">
+                            
+                            <div class="projects-header">
+                                <h4>Remove coating</h4>
+                                <a data-bs-target="#modalForm" data-bs-toggle="modal" href=''><i class="far fa-edit"></i></a>
+                            </div>
+                            <p>Department: <span>1824</span></p>
+                            <p>Operators group: <span>David Nachamni; Jhon doe</span</p>
+                            <p>Manager: <span>Sharon rad</span></p>
+                            <p>Text: <span>Perform heat treat accroding to process sheet HTR 11234</span</p>
+                            <p>Refrence: <span>PWA 72-31-09 REP 02 </span></p>
+                            <p>Button process sheet: <span>link to mantra</span></p>
+                            <p>Button Extra data: <span>NA</span></p>
+                            <p>Created by: <span>David nachmani</span</p> 
+                            <p>Creation date: <span>22/03/2019</span</p> 
+                            <p>Edited by: <span>NA</span</p> 
+                            <p>Edit date: <span>NA</span</p> 
+                            <div class="delete-btn-container">
+                            <button class="delete-button" id="">DELETE OPERATION</button>
+                            <div>
+                    </div>
+            </div>
+
+</div>
+
+
+<!-- Modal add part-->
+<div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit operation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body extra-wide">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="operation name" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Department</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Department" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Manager</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Manager" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Operator group</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Allowed Operator" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Instructions</label>
+                        <textarea class="form-control instruction-box" placeholder="Write something" name="Text1" cols="40" rows="7"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Refrence</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="refrence" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Process sheet</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Add link" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Extra data</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Add page" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="modal-footer d-block">
+                        <button type="submit" class="btn btn-danger float-start">Cancel</button>
+                        <button type="submit" class="btn btn-primary float-end">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal add route card-->
+<div class="modal fade" id="modalCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new route card</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Number</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="card number" style="text-transform:uppercase"/>
+                    </div>
+ 
+                    <div class="modal-footer d-block">
+                        <button type="submit" class="btn btn-primary float-end">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+var rows = document.getElementById("itemsTable").rows;
+const editBtn =   document.querySelector('#editBtn');   
+const deleteBtn =   document.querySelector('#deleteBtn');   
+
+toggleVisibilty(true);
+
+
+function toggleVisibilty(hidden){
+    if(hidden){
+        editBtn.style.display = "none";
+        deleteBtn.style.display = "none";
+    }else{
+        editBtn.style.display = "initial";
+        deleteBtn.style.display = "initial";
+    }
+}
+
+function addRowHandlers() {
+    
+    for (i = 0; i < rows.length; i++) {
+
+         rows[i].addEventListener('dblclick', function (e) {
+            var a = event.target.parentNode;
+            var nodes = a.querySelectorAll('td');
+
+            const info = [];
+            nodes.forEach(function(cell) {
+                info.push(cell.innerHTML)
+            });
+
+            let infoString = info.join("|");
+            //console.log(infoString);
+             location.href = "rootcard.html?" + infoString;
+         });
+
+         
+         rows[i].addEventListener('click', function (e) {
+            
+            var a = event.target.parentNode;
+            if(!a.classList.contains("active-row")){
+                clearRows();
+                a.classList.add("active-row");
+                toggleVisibilty(false);
+            }else{
+                clearRows();
+                toggleVisibilty(true);
+            }
+
+         });
+    }
+}
+
+function clearRows(){
+    for (i = 0; i < rows.length; i++) {
+        rows[i].classList.remove("active-row");
+    }
+}
+
+window.onload = addRowHandlers();
+</script>
+        
+    </body>
+</html>
