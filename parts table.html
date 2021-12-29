@@ -1,0 +1,877 @@
+<html>
+    <header>
+        <title>Items managment</title>
+          <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://www.markuptag.com/bootstrap/5/css/bootstrap.min.css" />
+
+        <style>
+            @import url(&#39;https://fonts.googleapis.com/css2?family=Montserrat:wght@300&amp;display=swap&#39;);
+
+                html{
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f6f7fb;
+                    height: 92vh;
+                    font-family: &#39;Montserrat&#39;, sans-serif;
+                }
+                body{
+                    height: 100%;
+                    padding: 20px;
+                    text-transform: uppercase;
+                }
+                
+                .table-box{
+                    margin: 50px auto;
+                }
+                .table-row{
+                    background-color: white;
+                    border-radius: 5px;
+                    display: table;
+                    width: 80%;
+                    margin: 6px auto;
+                    padding: 12px;
+                    color: #555;
+                    font-size: 14px;
+                    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3);
+                }
+                .table-row.item:hover{
+                    cursor: pointer;
+                    background-color: #71DFE7;
+                }
+                .table-cell{
+                    display: table-cell;
+                    text-align: start;
+                    padding: 4px 0;
+                    border-right: 1px solid black;
+                    vertical-align: middle;
+                    background-color: inherit;
+                }
+
+                .table-head{
+                    background-color: #396EB0;
+                    box-shadow: none;
+                    color: white;
+                    font-weight: 600;
+                }
+
+                .table-head .table-cell{
+                    border-right: none;
+                }
+
+                p{
+                    background-color: inherit;
+                }
+                /*-----------------*/
+
+                .styled-table {
+                border-collapse: collapse;
+                margin: 25px;
+                font-size: 0.85rem;
+                width: 95%;
+                
+                border-radius: 7px 7px 0 0;
+                overflow: hidden;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.15);
+                background-color: white;
+
+              }
+
+              .styled-table thead th {
+              background-color: #0079c1;
+              color: #ffffff;
+              text-align: start;
+              text-transform: uppercase;
+             }
+
+
+              .styled-table tbody tr{
+              background-color: white;
+             }
+
+             .styled-table tr th,
+            .styled-table td {
+             padding: 15px 20px;
+             text-align: start;
+            
+            }
+
+            tr td{
+                background-color: inherit;
+            }
+
+            #itemsTable tr > td:last-of-type {
+            font-weight: bold;
+            }
+
+            .styled-table tbody tr {
+               border-bottom: 3px solid #dddddd;
+              
+            }
+
+            /*
+            .styled-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }*/
+
+            .styled-table tbody tr:last-of-type {
+                border-bottom: 2px solid #396EB0;
+            }
+
+            .styled-table tbody tr.active-row {
+                font-weight: bold;
+                color: black;
+                background-color: #f6f7fb;
+                border-left: 8px solid #396EB0;
+            }
+
+            .styled-table tbody tr:hover{
+                background-color: #d6d3d2;
+                cursor: pointer;
+            }
+
+            .status-finished{
+                color: #29ab87;
+                font-weight: bold;
+            }
+            .status-running{
+                color: orange;
+                font-weight: bold;
+            }
+            .status-failed{
+                color: #cd5c5c;
+                font-weight: bold;
+            }
+            /*-------------------*/
+            .top-bar{
+                margin-bottom: 16px;
+                margin-left: 25px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 94%;
+            }
+
+            .input-container{
+                width: 100%;
+                margin-right: 30px;
+            }
+
+            input{
+                width: 100%;
+                height: 40px;
+                border-radius: 3px;
+                font-size: 14px; 
+                padding: 12px 20px 12px 20px; 
+                border: 1px solid #396EB0; 
+            }
+
+            .buttons{
+                display: flex;
+                flex-direction: row;
+                vertical-align: middle;
+            }
+
+            .buttons a{
+                margin: 8px 12px 8px 12px;
+                text-decoration: none;
+                color: #396EB0;
+                font-size: 15px;    
+                font-weight: bold;
+            }
+
+            .buttons a:hover{
+                color: #3895D3;
+                font-size: 16px;    
+            }
+
+            /*-----------------*/
+
+            .card-container{
+                height: 90%;
+                display: flex;
+                padding-bottom: 0;
+                }
+
+                .card-container .projects{
+                flex: 2.4;
+                height: 100%;
+                overflow-y: auto;
+                overflow-x: hidden;
+                }
+
+                .card-container .items-container{
+                flex: 9.6;
+               /* height: 100%;
+                overflow-y: auto;*/
+                }
+
+               .projects table{
+                   margin-top: 34px;
+                   width: 90%;
+               }
+
+               .projects table thead th {
+                background-color: #1DE9B6;
+                color: black;
+               }
+
+               .projects table tbody tr:last-of-type {
+                border-bottom: 2px solid #1DE9B6;
+               }
+            
+                .projects-header{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-size: 20px;
+                vertical-align: middle;
+               }
+
+               .projects-header p{
+                margin: 0;
+                font-size: 15px;
+                font-weight: bold;
+                vertical-align: middle;
+               }
+
+               .projects-header a{
+                color: black;
+                text-decoration: none;
+               }
+
+               .projects-header a:hover{
+                cursor: pointer;
+                color: white;
+               }
+
+              
+               .fixTableHead {
+                overflow-y: auto;
+                height: 100%;
+                }
+
+                .header-container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                }
+
+                .header-container p{
+                  margin: 0;
+                  display: inline-block;
+                }
+
+                .header-container:hover{
+                 cursor: pointer;
+                 color: black;
+                }
+
+                /*----------------custom checkbox---------------*/
+                .filters-container{
+                    margin-top: 4px;
+                    margin-left: 2px;
+                }
+
+                .expandable {
+                overflow: hidden;
+                transition: all .2s ease-in-out;
+                height: 3px;
+                }
+                
+                .expandable:hover {
+                height: 100%;
+                }
+
+                .checkbox-container input{
+                display: none;
+                 }
+
+.checkbox-container{
+  display: inline-block;
+  padding-left: 20px;
+  padding-right: 12px;
+  position: relative;
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+  margin-top: 5px;
+}
+
+.checkbox-container .checkmark{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #eee;
+  position: absolute;
+  left: 0;
+  top: 2.5;
+  border-radius: 3px;
+}
+
+
+.checkbox-container input:hover + .checkmark{
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked + .checkmark{
+  background-color: cornflowerblue;
+}
+
+.checkbox-container input:checked + .checkmark:after{
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 9px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.checkbox-container input:checked + .checkmark:hover{
+ background-color: #009DAE;
+}
+
+               /*----------------custom checkbox---------------*/
+
+    
+        </style>
+
+    </header>
+    <body>
+
+    <div class="card-container">
+        <div class="projects">
+
+            <div class="top-bar">
+             
+             <span class="input-container">
+               <input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search...">
+               <div>
+                <div class="filters-container expandable">
+
+                <label class="checkbox-container">W.O
+                    <input type="checkbox" data-name="0" data-ref="721309" data-op="1234" id="checkboxWo" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="checkbox-container">R.C
+                    <input type="checkbox" data-name="1" id="checkboxRc" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+
+                   <label class="checkbox-container">Engine
+                    <input type="checkbox" data-name="2" id="checkboxEngine" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="checkbox-container">Part
+                    <input type="checkbox" data-name="3" id="checkboxPart"  checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="checkbox-container">Finished
+                    <input type="checkbox" data-name="4" id="checkboxFinished" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="checkbox-container">In work
+                    <input type="checkbox" data-name="5" id="checkboxProcess" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <label class="checkbox-container">Failed
+                    <input type="checkbox" data-name="6" id="checkboxFailed" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+                  <!--
+                   <label class="checkbox-container">Refrence
+                    <input type="checkbox" id="checkboxRefrence" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>
+                   <label class="checkbox-container">Operation
+                    <input type="checkbox" id="checkboxOperation" checked="true"> 
+                    <span class="checkmark"></span>
+                  </label>-->
+                </div>
+               </div>
+             </span>
+            </div>
+
+            <table class="styled-table" id="projectsTable">
+                <thead>
+                    <tr>
+                        <th>
+                           <div class="projects-header">
+                           <p>Projects</p>
+                           <a data-bs-target="#modalProject" data-bs-toggle="modal" href=''><i class="far fa-plus-square"></i></a>
+                           </div>
+
+                       </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LPT blades</td>   
+                    </tr>
+                    <tr>
+                        <td>Leap engines</td>   
+                    </tr>
+                    <tr class="active-row">
+                        <td>F100 overhall</td>   
+                    </tr>
+                    <tr>
+                        <td>Disk repair</td>   
+                    </tr>
+  
+                </tbody>
+            </table>
+
+        </div>
+        
+
+    
+<div class="items-container">
+
+    <div class="top-bar">
+ 
+         <div class="buttons">
+            <a href='build step.html' id="editPrjBtn">Operations</a>
+            <a href='build project.html' id="editPrjBtn">Route cards</a>
+            <a href='build groups.html' id="editPrjBtn">User groups</a>
+            <a href='stats.html'>Statistics</a>
+            <a href='#'>Export</a>
+        </div>
+
+        <div class="buttons">
+            <a href='' id="editBtn">Edit</a>
+            <a href='' id="deleteBtn">Delete</a>
+            <a data-bs-target="#modalForm" data-bs-toggle="modal" href=''>Add part</a>
+        </div>
+    </div>
+    
+    
+    <div class="fixTableHead">
+        <table class="styled-table" id="itemsTable">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="header-container">
+                          <p>Work order</p>
+                          <i class="fas fa-sort-down"></i>
+                        <div>
+                      </th>
+                    <th>
+                      <div class="header-container">
+                        <p>Route card</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                     <th>
+                      <div class="header-container">
+                        <p>Description</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                   <th>
+                      <div class="header-container">
+                        <p>Part number</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                    <th>
+                      <div class="header-container">
+                        <p>Part serial</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                    <th>
+                      <div class="header-container">
+                        <p>Engine name</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                    <th>
+                      <div class="header-container">
+                        <p>Engine serial</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                    <th>
+                      <div class="header-container">
+                        <p>Init date</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                     <th>
+                      <div class="header-container">
+                        <p>Status</p>
+                        <i class="fas fa-sort-down"></i>
+                      <div>
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+               
+               
+            </tbody>
+        </table>
+    </div>     
+</div>
+</div>
+
+
+<!-- Modal add part-->
+<div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add new part</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Part number</label>
+                        <input type="text" class="form-control" id="partnumber" name="partnumber" placeholder="Part number" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Part serial</label>
+                        <input type="text" class="form-control" id="partserail" name="partserial" placeholder="For batch insert a range" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Engine type</label>
+                        <input type="text" class="form-control" id="enginetype" name="enginetype" placeholder="Engine type" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Engine serial</label>
+                        <input type="text" class="form-control" id="engineserial" name="engineserial" placeholder="Engine serial" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Set Route card</label>
+                        <input type="text" class="form-control" id="routecard" name="routecard" placeholder="e.g 11244323" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="modal-footer d-block">
+                        <button  class="btn btn-danger float-start">Scan barcode</button>
+                        <button  class="btn btn-primary float-end" onclick="insertData()">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal add project-->
+<div class="modal fade" id="modalProject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Create new project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Project name</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Project name" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Project engine</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Engine name" style="text-transform:uppercase"/>
+                    </div>
+                       <div class="mb-3">
+                        <label class="form-label">Customer</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="e.g U.S Air force" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="modal-footer d-block">
+                        <button type="submit" class="btn btn-primary float-end">Create project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal edit project-->
+<div class="modal fade" id="modalProjectEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Project name</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Project name" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Project engine</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="Engine name" style="text-transform:uppercase"/>
+                    </div>
+                     <div class="mb-3">
+                        <label class="form-label">Customer</label>
+                        <input type="text" class="form-control" id="password" name="password" placeholder="e.g U.S Air force" style="text-transform:uppercase"/>
+                    </div>
+                    <div class="modal-footer d-block">
+                        <button type="submit" class="btn btn-danger float-start">Delete project</button>
+                        <button type="submit" class="btn btn-primary float-end">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://www.markuptag.com/bootstrap/5/js/bootstrap.bundle.min.js"></script>
+
+<script>
+var index;
+var highlightedRow=-1;
+var partsTable = document.getElementById("itemsTable");
+var rows = document.getElementById("itemsTable").rows;
+var rowsProj = document.getElementById("projectsTable").rows;
+const editBtn = document.querySelector('#editBtn');   
+const deleteBtn = document.querySelector('#deleteBtn');   
+const addModal = document.querySelector('#modalForm'); 
+var checkboxWo = document.querySelector("#checkboxWo");
+var checkboxRc = document.querySelector("#checkboxRc");
+var checkboxEngine = document.querySelector("#checkboxEngine");
+var checkboxPart = document.querySelector("#checkboxPart");
+var checkboxFinished = document.querySelector("#checkboxFinished");
+var checkboxProcess = document.querySelector("#checkboxProcess");
+var checkboxFailed = document.querySelector("#checkboxFailed");
+//var checkboxRefrence = document.querySelector("#checkboxRefrence");
+//var checkboxOperation = document.querySelector("#checkboxOperation");
+var dataAttribute;
+var filtersAray = [0,1,2,3,4,5,6];
+var checkboxsAray = [checkboxWo,checkboxRc,checkboxEngine,checkboxPart,checkboxFinished,checkboxProcess,checkboxFailed];
+
+
+setCheckboxEventListeners();
+toggleVisibilty(true);
+populateInitTable()
+
+function toggleVisibilty(hidden){
+    if(hidden){
+        editBtn.style.display = "none";
+        deleteBtn.style.display = "none";
+    }else{
+        editBtn.style.display = "initial";
+        deleteBtn.style.display = "initial";
+    }
+}
+
+function setCheckboxEventListeners(){
+  for (k = 0; k < checkboxsAray.length; k++) {
+    checkboxsAray[k].addEventListener('change', function() {
+        
+    dataAttribute = parseInt(event.target.getAttribute('data-name'));
+    index = filtersAray.indexOf(dataAttribute);
+  if (this.checked) {
+    if (index == -1) {
+          //filtersAray.push(7);
+          filtersAray.splice(dataAttribute, 0, dataAttribute);
+           //(index,0 means dont delete any items,item)
+        }
+  } else {
+        index = filtersAray.indexOf(dataAttribute);
+        if (index !== -1) {
+          filtersAray.splice(index, 1);
+        } 
+  }
+  console.log(filtersAray);
+});
+  }
+}
+
+function addProjClick(){
+  for (i = 0; i < rowsProj.length; i++) {
+            rowsProj[i].addEventListener('dblclick', function (e) {
+            var a = event.target.parentNode;
+            var nodes = a.querySelectorAll('td');
+
+            location.href = "project details.html";
+         });
+  }
+
+}
+
+function addRowHandlers() {
+    
+    for (i = 0; i < rows.length; i++) {
+
+         rows[i].addEventListener('dblclick', function (e) {
+            var a = event.target.parentNode;
+            var nodes = a.querySelectorAll('td');
+
+            const info = [];
+            nodes.forEach(function(cell) {
+                info.push(cell.innerHTML)
+            });
+
+            let infoString = info.join("|");
+            //console.log(infoString);
+             location.href = "routecard.html?" + infoString;
+         });
+
+         
+         rows[i].addEventListener('click', function (e) {
+            
+            var a = event.target.parentNode;
+            if(!a.classList.contains("active-row")){
+                clearRows();
+                a.classList.add("active-row");
+                toggleVisibilty(false);
+                highlightedRow = a.rowIndex;
+            }else{
+                clearRows();
+                toggleVisibilty(true);
+                highlightedRow = -1;
+            }
+
+         });
+    }
+addProjClick();
+}
+
+function clearRows(){
+    for (i = 0; i < rows.length; i++) {
+        rows[i].classList.remove("active-row");
+    }
+}
+
+window.onload = addRowHandlers();
+
+function searchTable() {
+  // Declare variables
+  var input, filter, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  tr = partsTable.getElementsByTagName("tr");
+  cols = partsTable.getElementsByTagName("th");
+  
+
+  // Loop through all table rows, and hide those who don't match the search query
+  if(filtersAray.length == 9){
+    console.log("check all row");
+      
+        //check row
+        for (i = 1; i < tr.length; i++) {
+            td = tr[i];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+  }else{
+    console.log("has filters");
+        //loop through each row
+        for (j = 1; j < tr.length; j++) {
+            //loop through each column
+            for (i = 0; i < cols.length; i++) {
+                
+                if (!filtersAray.includes(i)) { 
+                    console.log("skipping col "+i);
+                    continue; 
+                }
+            
+                td = tr[j].getElementsByTagName("td")[i];
+
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[j].style.display = "";
+                         break;
+                    } else {
+                        tr[j].style.display = "none";
+                    }
+                }
+             }
+        }
+  }
+}
+
+
+function populateInitTable(){
+    var dataArray = [
+                    ['178637343','1137720','INNER COMBUSTION CHAMBER, LINER','2A2718-01','2A2718-01','PW4000','124f','13/06/2021','IN WORK'],
+                    ['178637343','1137720','DISK COMPRESSOR BLADE STG 5','hf383','serial','F100','34533f','22/07/2021','IN WORK'],
+                    ['178637343','1137720','TURBINE EXH CASE ASSY','hf383','serial','JT9D-7J','22244f','23/12/2021','FINISHED'],
+                    ['178637343','1137720','AIR SEAL STG 1','hf383','serial','V2500','62772b','23/12/2021','FAILED'],
+                    ['178637343','1137720','MANIFOLD TCC','hf383','serial','PT6','3888dd','23/12/2021','IN WORK'],
+                    ['178637343','1137720','NOZZLE SEGMENT','hf383','serial','JT9D-4RD','vh7777','23/12/2021','FINISHED'],
+                    ['178637343','1137720','VANE NOZZLE GUIDE','2A2718-01','2A2718-01','J79-J1E','124f','13/06/2021','IN WORK'],
+                    ['178637343','1137720','DISK COMPRESSOR BLADE STG 5','hf383','serial','F100','34533f','22/07/2021','IN WORK'],
+                    ['178637343','1137720','TURBINE EXH CASE ASSY','hf383','serial','JT9D-7J','22244f','23/12/2021','FAILED'],
+                    ['178637343','1137720','TOWER SHAFT','hf383','serial','V2500','62772b','23/12/2021','FINISHED'],
+                    ['178637343','1137720','TOWER SHAFT','hf383','serial','V2500','62772b','23/12/2021','FINISHED'],
+                    ['178637343','1137720','MANIFOLD TCC','hf383','serial','PT6','3888dd','23/12/2021','IN WORK']
+                    
+                    ];
+        for(var i=0;i<dataArray.length;i++){
+        addRow(dataArray[i]) 
+       }             
+}
+
+function setColorToStatusColumn(){
+    //need to do
+}
+
+function insertData(){
+   const vc = addModal.querySelector('#routecard').textContent
+   const pn = addModal.querySelector('#partnumber').textContent
+   const ps = addModal.querySelector('#partserail').textContent
+   const es = addModal.querySelector('#engineserial').textContent
+   const et = addModal.querySelector('#enginetype').textContent
+   
+   inputValuesArray = ['123456',vc,'disk turbine',pn,ps,et,es,'01/2/22','IN WORK'];
+   addRow(inputValuesArray)
+}
+
+function addRow(inputValuesArray) {
+  //var inputValuesArray = ['1111','234','disk','hf383','serial','f100','hjhds','12.2.2','start'];
+  var row = partsTable.querySelector('tbody').insertRow(0);
+  for(var i=0; i<inputValuesArray.length; i++){
+    row.insertCell(i).textContent = inputValuesArray[i];
+    if(i==inputValuesArray.length-1){
+        if(row.cells[i].textContent === 'FAILED'){
+            row.cells[i].style.color = "#cd5c5c";
+        }else if(row.cells[i].textContent === 'IN WORK'){
+            row.cells[i].style.color = "orange";
+        }else{
+            row.cells[i].style.color = "#29ab87";
+        }
+    }
+  }
+}
+
+
+function deleteRow(highlightedRow) {
+    console.log(highlightedRow)
+    if(highlightedRow>0){
+        partsTable.deleteRow(highlightedRow);
+    }
+}
+
+deleteBtn.addEventListener("click", function(event){
+  event.preventDefault() //default reloads page
+  deleteRow(highlightedRow)
+});
+
+</script>
+        
+    </body>
+</html>
