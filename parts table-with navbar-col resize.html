@@ -847,7 +847,7 @@ window.onload = addRowHandlers();
 
 function searchTable() {
   // Declare variables
-  var input, filter, tr, td, i, txtValue;
+  var input, filter, tr, td, i, txtValue, cols;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   tr = partsTable.getElementsByTagName("tr");
