@@ -652,6 +652,34 @@ transform: rotate(10deg);
                 }
 
                 /*-------------custom scrollbar----------*/
+                /*-------------toolip---------------------*/
+
+                .tooltip {
+            
+                 }
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  max-width: 250px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 14px;
+
+  /* Position the tooltip */
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+/*-------------toolip---------------------*/
 
 .box .boldText{
 font-style: 700;
@@ -842,7 +870,9 @@ color: var(--red);
                 </div>
 
                  <div class="box red">
-                       <button class="btn btn-action up-position" id="strBtn">START</button>   
+                         <button class="btn btn-action up-position tooltip" id="strBtn">START
+                           <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
+                       </button>    
                        <div class="numberCircle">OP 3</div>
                        <h3>GTAW welding</h3>
                        <p>Work center: 12824</p>
@@ -872,7 +902,10 @@ color: var(--red);
                 </div>
 
                    <div class="box red">
-                       <button class="btn btn-action up-position" id="strBtn2">START</button>   
+                       <button class="btn btn-action up-position tooltip" id="strBtn2">START
+                           <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
+                       </button>   
+ 
                        <div class="numberCircle">OP 4</div>
                        <h3>Heat treat</h3>
                        <p>Work center: 12826</p>
