@@ -304,6 +304,10 @@ margin: 10px;
     border-top: 3px solid var(--cyan);
 }
 
+.cyan-all {
+    border: 5px solid var(--cyan);
+}
+
 .orange {
     border-top: 3px solid var(--orange);
 }
@@ -715,7 +719,7 @@ color: var(--red);
         <div class="circle">5 <span>Metalugraphic evaluation</span></div>
         <div class="circle">6 <span>Assembly</span></div>
         <div class="circle">7 <span>Plasma coating</span></div>   
-        <div class="circle">8 <span>-</span></div>
+        <div class="circle">8 <span>Service approval</span></div>
         <div class="circle">9 <span>-</span></div>
         <div class="circle">10 <span>-</span></div>   
         <div class="circle">11 <span>-</span></div>
@@ -765,9 +769,10 @@ color: var(--red);
         <button class="btn" id="next">Next</button>
       </div>-->
 
-
           </div>
             <div class="data">
+
+
                  <div class="box cyan">
 
                      <div class="sign-container">
@@ -802,12 +807,12 @@ color: var(--red);
                                <p>3 Hr</p>
                              </div>
                           <div class="contact-line">
-                           <i class="fas fa-user-edit contact-icon"></i>
-                           <p>Leonid Slav</p>
+                           <i class="fas fa-tools contact-icon"></i>
+                           <p>Rosler shot peen machine</p>
                          </div>
                            <div class="contact-line">
                            <i class="fas fa-calendar-check contact-icon"></i>
-                           <p>04/12/2020</p>
+                           <p>Exp. 04/12/2022</p>
                         </div>
 
                         </div>
@@ -845,14 +850,7 @@ color: var(--red);
                                <i class="fas fa-hourglass-half contact-icon"></i>
                                <p>1 Hr</p>
                              </div>
-                          <div class="contact-line">
-                           <i class="fas fa-user-edit contact-icon"></i>
-                           <p>Leonid Slav</p>
-                         </div>
-                           <div class="contact-line">
-                           <i class="fas fa-calendar-check contact-icon"></i>
-                           <p>04/12/2020</p>
-                        </div>
+                         
 
                         </div>
                         <div class="usage-info">
@@ -871,7 +869,7 @@ color: var(--red);
 
                  <div class="box red">
                          <button class="btn btn-action up-position tooltip" id="strBtn">START
-                           <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
+                           <span class="tooltiptext">Machine Expiration date has passed</span>
                        </button>    
                        <div class="numberCircle">OP 3</div>
                        <h3>GTAW welding</h3>
@@ -883,17 +881,18 @@ color: var(--red);
                        <hr class="divider">
                          <div class="step-info">
                            <div class="creation-info"> 
-                             <div class="contact-line">
-                               <i class="fas fa-hourglass-half contact-icon"></i>
-                               <p>2.5 Hr</p>
-                             </div>
-                          <div class="contact-line">
-                           <i class="fas fa-user-edit contact-icon"></i>
-                           <p>Leonid Slav</p>
-                         </div>
+                             
                            <div class="contact-line">
                            <i class="fas fa-calendar-check contact-icon"></i>
                            <p>04/12/2020</p>
+                        </div>
+                          <div class="contact-line">
+                           <i class="fas fa-tools contact-icon"></i>
+                           <p>PUK welder machine</p>
+                         </div>
+                           <div class="contact-line">
+                           <i class="fas fa-calendar-check contact-icon"></i>
+                           <p>Exp. 04/12/2020</p>
                         </div>
 
                         </div>
@@ -920,18 +919,14 @@ color: var(--red);
                                <i class="fas fa-hourglass-half contact-icon"></i>
                                <p>2.5 Hr</p>
                              </div>
-                          <div class="contact-line">
-                           <i class="fas fa-user-edit contact-icon"></i>
-                           <p>Leonid Slav</p>
-                         </div>
-                           <div class="contact-line">
-                           <i class="fas fa-calendar-check contact-icon"></i>
-                           <p>04/12/2020</p>
-                        </div>
 
                         </div>
                        
                      </div>
+                      <hr class="divider">
+                       <h3>Exception notice</h3>
+                       <p>Part was held a temp of 1000C for 3 hours, instead of 2. and approved by quality assurance.</p>
+
                 </div>
 
                 <div class="box red">
@@ -949,22 +944,72 @@ color: var(--red);
                                <i class="fas fa-hourglass-half contact-icon"></i>
                                <p>2.5 Hr</p>
                              </div>
-                          <div class="contact-line">
-                           <i class="fas fa-user-edit contact-icon"></i>
-                           <p>Leonid Slav</p>
-                         </div>
-                           <div class="contact-line">
-                           <i class="fas fa-calendar-check contact-icon"></i>
-                           <p>04/12/2020</p>
-                        </div>
 
                         </div>
                        
                      </div>
            </div>
+
+
+<!--->
+
+
+                 <div class="box cyan-all">
+
+                     <div class="sign-container">
+                       <div class="signature">
+                         <p class="span">Digitally signed by:</p>
+                         <p>BED 161 CRS-500</p>
+                         <p>Quality Assurance Engineer</p>
+                         <p class="date-time">15:12, 23/07/2022</p>
+                         <p class="watermark">approved</p>
+                       </div>
+
+                       
+                     </div>
+
+                       <h3>Service approval certificate</h3>
+                       <p class="instructions">Shot peen marked area on part according to process sheet: SSP-1120763, <a href="">72-09-36 Rep 01</a></p>
+                       
+
+                       <div class="btns-container">
+                        <button class="btn" id="open-ps"><a href="">Download</a></button>
+                        <button class="btn btn-lab" id="open-ps"><a href="">Print</a></button>
+                       </div>
+
+                        <hr class="divider">
+                         <div class="step-info">
+                           <div class="creation-info"> 
+                          
+
+                        </div>
+                        <div class="usage-info">
+                         <div class="contact-line">
+                           <i class="far fa-user contact-icon"></i>
+                           <p>David Nachmani</p>
+                         </div>
+                         <div class="contact-line">
+                           <i class="fas fa-calendar-day contact-icon"></i>
+                           <p>29/11/2021 13:47</p>
+                         </div>
+                       
+                         <div class="contact-line">
+                           <i class="fas fa-calendar-week contact-icon"></i>
+                           <p>04/12/2021 11:03</p>
+                        </div>
+                       </div>
+                     </div>
+                </div>
+
+
+
+
+
+
+
+<!---->
            </div>
       </div>
-
     </div>
 
 
