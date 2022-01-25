@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Digital Route card</title>
+
+<!-- Font Awesome icons (free version)-->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Barcode+39&family=Montserrat:wght@300&display=swap');
+
+:root {
+  --line-border-fill: #1DE9B6;
+  --line-border-empty: #e0e0e0;
+
+    --red: #F8485E;
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+    --varyDarkBlue: hsl(234, 12%, 34%);
+    --grayishBlue: hsl(229, 6%, 66%);
+    --veryLightGray: hsl(0, 0%, 98%);
+    --DarkGray: #3A3B3C;
+    --weight1: 200;
+    --weight2: 400;
+    --weight3: 600;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+	background: #e2eaef;
+	font-family: "Open Sans", sans-serif;
+        padding: 40px 30px 0 30px;
+}
+h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 60px;
+}
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	border-radius: 1px;
+	background: var(--red);
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+.carousel .item {
+	color: #747d89;
+	min-height: 325px;
+	text-align: center;
+	overflow: hidden;
+}
+.carousel .thumb-wrapper {
+        border-radius: 5px;
+        border-top: 3px solid red;
+        padding: 20px 30px 18px 30px;
+	padding: 25px 15px;
+	background-color: white;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+        z-index: 6;
+	box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+}
+.carousel .item .img-box {
+	height: 120px;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+.carousel .item img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+.carousel .item h4 {
+	font-size: 18px;
+}
+.carousel .item h4, .carousel .item p, .carousel .item ul {
+	margin-bottom: 5px;
+}
+.carousel .thumb-content .btn {
+	color: #7ac400;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: none;
+	border: 1px solid #7ac400;
+	padding: 6px 14px;
+	margin-top: 5px;
+	line-height: 16px;
+	border-radius: 20px;
+}
+.carousel .thumb-content .btn:hover, .carousel .thumb-content .btn:focus {
+	color: #fff;
+	background: #7ac400;
+	box-shadow: none;
+}
+.carousel .thumb-content .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.carousel .item-price strike {
+	opacity: 0.7;
+	margin-right: 5px;
+}
+.carousel-control-prev, .carousel-control-next {
+	height: 44px;
+	width: 40px;
+	background: var(--cyan);	
+	margin: auto 0;
+	border-radius: 4px;
+	opacity: 0.8;
+}
+.carousel-control-prev:hover, .carousel-control-next:hover {
+	background: #78bf00;
+	opacity: 1;
+}
+.carousel-control-prev i, .carousel-control-next i {
+	font-size: 36px;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	margin: -19px 0 0 0;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	color: #fff;
+	text-shadow: none;
+	font-weight: bold;
+}
+.carousel-control-prev i {
+	margin-left: -2px;
+}
+.carousel-control-next i {
+	margin-right: -4px;
+}		
+.carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border: none;
+}
+.carousel-indicators li {	
+	background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {	
+	background: rgba(0, 0, 0, 0.6);
+}
+.carousel .wish-icon {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 99;
+	cursor: pointer;
+	font-size: 16px;
+	color: #abb0b8;
+}
+.carousel .wish-icon .fa-heart {
+	color: #ff6161;
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
+/*------------------------my styles------------------------*/
+
+          .step-info{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          .creation-info{
+          display: flex;
+          flex-direction: row;
+          }
+
+          .usage-info{
+          display: flex;
+          flex-direction: row;
+          }
+
+          .creation-info .contact-line{
+            margin-right: 20px;
+          }
+
+          .usage-info .contact-line{
+            margin-left: 20px;
+          }
+
+          .contact-line{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            text-align: center;
+            vertical-align: middle;
+            color: black;
+          }
+
+          .contact-line p{
+           margin-bottom: 0;
+           margin-top: 10px;
+           font-size: 15px;
+          }
+
+          .contact-icon{
+            font-size: 16px;
+            margin-right: 10px;
+            margin-top: 12px;
+            color: black;
+          }
+
+          .divider{
+            margin-top: 20px;
+            border-top: 2px solid black;
+          }
+
+          .numberCircle {
+           border-radius: 10%;
+           padding: 8px;
+           background: #fff;
+           border: 2px solid black;
+           color: black;
+           text-align: center;
+           font-weight: bold;
+           font-size: 16px;
+           position: absolute;
+           top: 20px;
+           right: 20px;
+          }
+
+          .box p {
+           color: var(--DarkGray);
+           margin-top: 10px;
+           margin-bottom: 12px;;
+           }
+
+           .box h3{
+           text-transform: uppercase;
+           margin-top: 0;
+           }
+
+           .box h4{
+            margin: 10px;
+            }
+
+            .box .instructions{
+             max-width: 45%;
+             text-align: center;
+             margin: 0 auto 12px auto;
+             margin-top:40px;
+            }
+
+
+            .btn {
+             background-color: var(--line-border-fill);
+             color: black;
+             border: 0;
+             border-radius: 5px;
+             cursor: pointer;
+             font-family: inherit;
+             padding: 8px 26px;
+             margin: 5px;
+             font-size: 14px;
+             min-width: 110px;
+             }
+
+            .btn:hover {
+             background-color: #009DAE;
+             color: white;
+             }
+
+            .btn-action-end{
+             background-color: var(--blue);
+             border-radius: 0;
+             font-weight: bold;
+             }
+
+            .up-position{
+             position: absolute;
+             top: 20px;
+             left: 20px;
+             }
+
+             .box .boldText{
+              font-style: 700;
+              color: var(--red);
+              }
+
+              .barcode{
+               font-family: 'Libre Barcode 39', cursive;
+               font-family: 'Libre Barcode 128', cursive;
+               font-size: 5rem;
+               margin: 20px 20px 0 20px;
+               height: 60px;
+               }
+
+               .disabled{
+                cursor: not-allowed;
+                color: white;
+                background-color: lightgrey;
+                }
+
+                .disabled:hover{
+                cursor: not-allowed;
+                }
+
+                
+
+               .red {
+    border-top: 3px solid var(--red);
+}
+
+.box .black {
+    border-top: 3px solid black;
+}
+
+.box .blue {
+    border-top: 3px solid var(--blue);
+}
+
+.box .cyan {
+    border-top: 3px solid var(--cyan);
+}
+
+.box .cyan-all {
+    border: 5px solid var(--cyan);
+}
+
+.carousel .thumb-wrapper.orange {
+    border-top: 3px solid var(--orange);
+}
+
+</style>
+<script>
+$(document).ready(function(){
+	$(".wish-icon i").click(function(){
+		$(this).toggleClass("fa-heart fa-heart-o");
+	});
+});	
+</script>
+</head>
+<body>
+<div class="container-fluid-xl">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Route Card 112354</b></h2>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>   
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item carousel-item active">
+					<div class="row">
+													
+						<div class="col-sm-12">
+							<div class="thumb-wrapper box orange">
+								  <button class="btn btn-action-end up-position" id="finBtn" onclick="openPasswordDialog('Edit Step')">FINISH</button> 
+								  <div class="numberCircle">OP 2</div>
+                                                                  <h3>GTAW WELDING</h3>
+                                                                  <p>Work center: 12824</p>
+                                                                  <p class="instructions">Fill crack with AMS 5830 weild wire GTAW welding</p>
+                                                                  <p class="boldText">Remember to log the Filler wire batch you used!</p>
+                                                                  <p class="barcode">11234</p>
+                                                                  <hr class="divider">
+
+                         <div class="step-info">
+                           <div class="creation-info"> 
+                               <div class="contact-line">
+                               <i class="fas fa-hourglass-half contact-icon"></i>
+                               <p>2 Hr</p>
+                               </div>
+                              <div class="contact-line">
+                              <i class="fas fa-tools contact-icon"></i>
+                              <p>PUK welder machine</p>
+                              </div>
+                              <div class="contact-line">
+                              <i class="fas fa-calendar-check contact-icon"></i>
+                              <p>Exp. 04/12/2022</p>
+                             </div>
+                         </div>
+
+                        <div class="usage-info">
+                             <div class="contact-line">
+                             <i class="far fa-user contact-icon"></i>
+                             <p>David Nachmani</p>
+                             </div>
+                             <div class="contact-line">
+                             <i class="fas fa-calendar-day contact-icon"></i>
+                             <p>29/11/2021 13:47</p>
+                            </div>
+                       
+                             <div class="contact-line">
+                             <i class="fas fa-calendar-week contact-icon"></i>
+                             <p>04/12/2021 11:03</p>
+                             </div>
+                        </div>
+                     </div>	
+
+			
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item carousel-item">
+					<div class="row">
+						
+						<div class="col-sm-12">
+							<div class="thumb-wrapper box">
+								  <button class="btn btn-action-end up-position disabled" id="finBtn" onclick="openPasswordDialog('Edit Step')">START</button> 
+								  <div class="numberCircle">OP 3</div>
+                                                                  <h3>Heat treat</h3>
+                                                                  <p>Work center: 12826</p>
+                                                                  <p class="instructions">Prefoem heat treatment per HTR 112534</p>
+                                                                  <p class="boldText">Log heat treat cycle!</p>
+                                                                  <p class="barcode">11234</p>
+                                                                  <hr class="divider">		
+
+                                                                      <div class="step-info">
+                           <div class="creation-info"> 
+                               <div class="contact-line">
+                               <i class="fas fa-hourglass-half contact-icon"></i>
+                               <p>6 Hr</p>
+                               </div>
+                              <div class="contact-line">
+                              <i class="fas fa-tools contact-icon"></i>
+                              <p>Vacuum furnace</p>
+                              </div>
+                              <div class="contact-line">
+                              <i class="fas fa-calendar-check contact-icon"></i>
+                              <p>Exp. 04/12/2022</p>
+                             </div>
+                         </div>
+
+                       
+                     </div>			
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="item carousel-item">
+					<div class="row">
+										
+						<div class="col-sm-12">
+							<div class="thumb-wrapper box">
+								  <button class="btn btn-action-end up-position disabled" id="finBtn" onclick="openPasswordDialog('Edit Step')">START</button> 
+								  <div class="numberCircle">OP 4</div>
+                                                                  <h3>SHOT PEEN</h3>
+                                                                  <p>Work center: 12826</p>
+                                                                  <p class="instructions">Shot peen marked area on part according to process sheet: <a href="">SSP-1120763</a>, <a href="">72-09-36 Rep 01</a></p>
+                                                                  <p class="boldText">Remember to log the Almen intensity!</p>
+                                                                  <p class="barcode">11234</p>
+                                                                  <hr class="divider">
+
+                                                                      <div class="step-info">
+                           <div class="creation-info"> 
+                               <div class="contact-line">
+                               <i class="fas fa-hourglass-half contact-icon"></i>
+                               <p>1.5 Hr</p>
+                               </div>
+                              <div class="contact-line">
+                              <i class="fas fa-tools contact-icon"></i>
+                              <p>Rosler shot peen machine</p>
+                              </div>
+                              <div class="contact-line">
+                              <i class="fas fa-calendar-check contact-icon"></i>
+                              <p>Exp. 04/12/2022</p>
+                             </div>
+                         </div>
+
+                       
+                     </div>	
+													
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>                                		
