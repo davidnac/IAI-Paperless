@@ -144,17 +144,43 @@ text-align: center;
 	<input placeholder="ID number" type="text" />
 	<input placeholder="Password" type="password" />
 
-         <select>
+         <select id="userSelect">
     <option value="1">Operator</option>
     <option value="2">Supervisor</option>
     <option value="3">Engineering</option>
     <option value="4">Quality control</option>
         </select>
 
-	<a class="button" href="parts table.html">ENTER</a>
+	<a id="loginBtn" class="button" href="">ENTER</a>
 	</form>
 
 	</div>
 	</section>
+
+<script>
+
+const tag = document.getElementById("loginBtn");
+var user = document.getElementById("userSelect");
+user.value = 1;
+
+tag.addEventListener("click", function(event) {
+  event.preventDefault()
+
+  strUser = user.value;
+  console.log(strUser)
+
+if(strUser == 1){
+  console.log("inside if")
+  window.open("large-routecard.html","_self");
+}else{
+  console.log("inside else")
+  window.open("parts table.html","_self");
+}
+
+});
+
+
+</script>
+
 </body>
 </html>
