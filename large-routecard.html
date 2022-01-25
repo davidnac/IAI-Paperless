@@ -44,7 +44,7 @@
 body {
 	background: #e2eaef;
 	font-family: "Open Sans", sans-serif;
-        padding: 40px 30px 0 30px;
+        padding: 20px 30px 0 30px;
 }
 h2 {
 	color: #000;
@@ -57,7 +57,7 @@ h2 {
 }
 h2::after {
 	content: "";
-	width: 100px;
+	width: 150px;
 	position: absolute;
 	margin: 0 auto;
 	height: 4px;
@@ -71,6 +71,9 @@ h2::after {
 	margin: 50px auto;
 	padding: 0 70px;
 }
+.carousel-inner{
+  box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+}
 .carousel .item {
 	color: #747d89;
 	min-height: 325px;
@@ -78,15 +81,15 @@ h2::after {
 	overflow: hidden;
 }
 .carousel .thumb-wrapper {
-        border-radius: 5px;
-        border-top: 3px solid red;
-        padding: 20px 30px 18px 30px;
+  border-radius: 5px;
+  border-top: 3px solid red;
+  padding: 20px 30px 18px 30px;
 	padding: 25px 15px;
 	background-color: white;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
-        z-index: 6;
+  z-index: 6;
 	box-shadow: 0px 30px 40px -20px var(--grayishBlue);
 }
 .carousel .item .img-box {
@@ -95,7 +98,7 @@ h2::after {
 	width: 100%;
 	position: relative;
 }
-.carousel .item img {	
+.carousel .item img {
 	max-width: 100%;
 	max-height: 100%;
 	display: inline-block;
@@ -144,7 +147,7 @@ h2::after {
 .carousel-control-prev, .carousel-control-next {
 	height: 44px;
 	width: 40px;
-	background: var(--cyan);	
+	background: var(--cyan);
 	margin: auto 0;
 	border-radius: 4px;
 	opacity: 0.8;
@@ -171,7 +174,7 @@ h2::after {
 }
 .carousel-control-next i {
 	margin-right: -4px;
-}		
+}
 .carousel-indicators {
 	bottom: -50px;
 }
@@ -182,10 +185,10 @@ h2::after {
 	border-radius: 50%;
 	border: none;
 }
-.carousel-indicators li {	
+.carousel-indicators li {
 	background: rgba(0, 0, 0, 0.2);
 }
-.carousel-indicators li.active {	
+.carousel-indicators li.active {
 	background: rgba(0, 0, 0, 0.6);
 }
 .carousel .wish-icon {
@@ -257,6 +260,7 @@ h2::after {
 
           .divider{
             margin-top: 20px;
+            margin-bottom: 8px;
             border-top: 2px solid black;
           }
 
@@ -332,11 +336,11 @@ h2::after {
               color: var(--red);
               }
 
-              .barcode{
+              #cardbarcode{
                font-family: 'Libre Barcode 39', cursive;
                font-family: 'Libre Barcode 128', cursive;
                font-size: 5rem;
-               margin: 20px 20px 0 20px;
+               margin: 20px 20px 60px 20px;
                height: 60px;
                }
 
@@ -352,7 +356,7 @@ h2::after {
                 background-color: lightgrey;
                 }
 
-                
+
 
                .red {
     border-top: 3px solid var(--red);
@@ -378,13 +382,50 @@ h2::after {
     border-top: 3px solid var(--orange);
 }
 
+.part-data-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.part-data-container .box{
+  border-radius: 5px;
+  border-top: 3px solid black;
+	padding: 25px 15px;
+	background-color: white;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+  z-index: 6;
+	box-shadow: 0px 30px 40px -20px var(--grayishBlue);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.part-data-container .box h3{
+  font-size: 22px;
+}
+
+.part-data-container .box p{
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.part-data-container .box .barcode{
+  font-family: 'Libre Barcode 39', cursive;
+  font-family: 'Libre Barcode 128', cursive;
+  font-size: 5rem;
+}
+
+
+
 </style>
 <script>
 $(document).ready(function(){
 	$(".wish-icon i").click(function(){
 		$(this).toggleClass("fa-heart fa-heart-o");
 	});
-});	
+});
 </script>
 </head>
 <body>
@@ -392,31 +433,62 @@ $(document).ready(function(){
 	<div class="row">
 		<div class="col-md-12">
 			<h2>Route Card 112354</b></h2>
+
+      <div class="part-data-container">
+
+          <div class="box black side">
+          <h3>Compressor Disk Stage 5</h3>
+          <p>Part number: 669605</p>
+          <p>Part serial: P58889</p>
+          <p>Engine type: JT9D-7R4D</p>
+          <p>Engine serial: P58889</p>
+          </div>
+
+<!--
+          <div class="thumb-wrapper box black side">
+           <h3>Current location</h3>
+           <p class="barcode">11234</p>
+           <p id="current-step">Waterjet department</p>
+         </div>-->
+
+          <div class="box black side">
+          <h3>Creation & Revisions</h3>
+          <p>Revision: B</p>
+        <!--  <p>Created by: Slav leonid</p>
+          <p>Created On: 12/03/2012</p>-->
+          <p>Revised by: David nachmani</p>
+          <p>Revised on: 27/01/2022</p>
+          </div>
+
+  </div>
+
+
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 			<!-- Carousel indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
 				<li data-target="#myCarousel" data-slide-to="2"></li>
-			</ol>   
+			</ol>
 			<!-- Wrapper for carousel items -->
 			<div class="carousel-inner">
 				<div class="item carousel-item active">
 					<div class="row">
-													
+
 						<div class="col-sm-12">
 							<div class="thumb-wrapper box orange">
-								  <button class="btn btn-action-end up-position" id="finBtn" onclick="openPasswordDialog('Edit Step')">FINISH</button> 
+								  <button class="btn btn-action-end up-position" id="finBtn" onclick="openPasswordDialog('Edit Step')">FINISH</button>
 								  <div class="numberCircle">OP 2</div>
-                                                                  <h3>GTAW WELDING</h3>
-                                                                  <p>Work center: 12824</p>
-                                                                  <p class="instructions">Fill crack with AMS 5830 weild wire GTAW welding</p>
-                                                                  <p class="boldText">Remember to log the Filler wire batch you used!</p>
-                                                                  <p class="barcode">11234</p>
-                                                                  <hr class="divider">
+
+                        <h3>GTAW WELDING</h3>
+                        <p>Work center: 12824</p>
+                        <p class="instructions">Fill crack with AMS 5830 weild wire GTAW welding</p>
+                        <p class="boldText">Remember to log the Filler wire batch you used!</p>
+                        <p id="cardbarcode" class="barcode">11234</p>
+                        <hr class="divider">
 
                          <div class="step-info">
-                           <div class="creation-info"> 
+                           <div class="creation-info">
                                <div class="contact-line">
                                <i class="fas fa-hourglass-half contact-icon"></i>
                                <p>2 Hr</p>
@@ -440,35 +512,36 @@ $(document).ready(function(){
                              <i class="fas fa-calendar-day contact-icon"></i>
                              <p>29/11/2021 13:47</p>
                             </div>
-                       
+
                              <div class="contact-line">
                              <i class="fas fa-calendar-week contact-icon"></i>
                              <p>04/12/2021 11:03</p>
                              </div>
                         </div>
-                     </div>	
+                     </div>
 
-			
+
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="item carousel-item">
 					<div class="row">
-						
+
 						<div class="col-sm-12">
 							<div class="thumb-wrapper box">
-								  <button class="btn btn-action-end up-position disabled" id="finBtn" onclick="openPasswordDialog('Edit Step')">START</button> 
+								  <button class="btn btn-action-end up-position disabled" id="finBtn" onclick="openPasswordDialog('Edit Step')">START</button>
 								  <div class="numberCircle">OP 3</div>
-                                                                  <h3>Heat treat</h3>
-                                                                  <p>Work center: 12826</p>
-                                                                  <p class="instructions">Prefoem heat treatment per HTR 112534</p>
-                                                                  <p class="boldText">Log heat treat cycle!</p>
-                                                                  <p class="barcode">11234</p>
-                                                                  <hr class="divider">		
 
-                                                                      <div class="step-info">
-                           <div class="creation-info"> 
+                          <h3>Heat treat</h3>
+                          <p>Work center: 12826</p>
+                          <p class="instructions">Prefoem heat treatment per <a href="">HTR 112534</a></p>
+                          <p class="boldText">Log heat treat cycle!</p>
+                          <p id="cardbarcode" class="barcode">11234</p>
+                          <hr class="divider">
+
+                          <div class="step-info">
+                           <div class="creation-info">
                                <div class="contact-line">
                                <i class="fas fa-hourglass-half contact-icon"></i>
                                <p>6 Hr</p>
@@ -483,28 +556,29 @@ $(document).ready(function(){
                              </div>
                          </div>
 
-                       
-                     </div>			
+
+                     </div>
 							</div>
-						</div>						
+						</div>
 					</div>
 				</div>
 				<div class="item carousel-item">
 					<div class="row">
-										
+
 						<div class="col-sm-12">
 							<div class="thumb-wrapper box">
-								  <button class="btn btn-action-end up-position disabled" id="finBtn" onclick="openPasswordDialog('Edit Step')">START</button> 
+								  <button class="btn btn-action-end up-position disabled" id="finBtn" onclick="openPasswordDialog('Edit Step')">START</button>
 								  <div class="numberCircle">OP 4</div>
-                                                                  <h3>SHOT PEEN</h3>
-                                                                  <p>Work center: 12826</p>
-                                                                  <p class="instructions">Shot peen marked area on part according to process sheet: <a href="">SSP-1120763</a>, <a href="">72-09-36 Rep 01</a></p>
-                                                                  <p class="boldText">Remember to log the Almen intensity!</p>
-                                                                  <p class="barcode">11234</p>
-                                                                  <hr class="divider">
 
-                                                                      <div class="step-info">
-                           <div class="creation-info"> 
+                          <h3>SHOT PEEN</h3>
+                          <p>Work center: 12826</p>
+                          <p class="instructions">Shot peen marked area on part according to process sheet: <a href="">SSP-1120763</a>, <a href="">72-09-36 Rep 01</a></p>
+                          <p class="boldText">Remember to log the Almen intensity!</p>
+                          <p id="cardbarcode" class="barcode">11234</p>
+                          <hr class="divider">
+
+                          <div class="step-info">
+                           <div class="creation-info">
                                <div class="contact-line">
                                <i class="fas fa-hourglass-half contact-icon"></i>
                                <p>1.5 Hr</p>
@@ -519,9 +593,9 @@ $(document).ready(function(){
                              </div>
                          </div>
 
-                       
-                     </div>	
-													
+
+                     </div>
+
 							</div>
 						</div>
 					</div>
@@ -540,8 +614,8 @@ $(document).ready(function(){
 </div>
 
 <script>
- 
-    $(document).ready(function () { 
+
+    $(document).ready(function () {
         checkitem();
 
     });
@@ -571,4 +645,4 @@ $(document).ready(function(){
     }
 </script>
 </body>
-</html>                                		
+</html>
