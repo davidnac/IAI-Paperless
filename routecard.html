@@ -408,24 +408,7 @@ margin: 10px;
     width: 220px;
 }
 
-.round-signature{
-    position: realtive;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 50%;
-    padding: 10px;
-    border: 6px solid #DD4A48;
-    outline: 2px solid black;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-    position: relative;
-    z-index: 3;
-    transform: rotate(-10deg);
-    margin-left: 80px;
-}
+
 
 
 .sign-container{
@@ -469,21 +452,7 @@ text-transform: uppercase;
 transform: rotate(10deg);
 }
 
-.watermark-two{
-position: absolute;
-top: 35%;
-left: -30%;
-color: var(--red) !important;
-opacity: 1;
-z-index: 2;
-display: inline-block;
-font-weight: bold;
-font-size: 26px;
-text-transform: uppercase;
-transform: rotate(10deg);
-border: 2px solid var(--red);
-outline: 1px solid black;
-}
+
 
 .signature .span{
   color: var(--blue);
@@ -743,6 +712,52 @@ color: var(--red);
 border: 2px solid #B762C1;
 padding: 8px;
 }
+
+.round-signature-container{
+  position: relative;
+  width: 200px;
+  height: 100px;
+}
+
+
+.round-signature{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    padding: 10px;
+    border: 12px double #DD4A48;
+    outline: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+}
+
+    .watermark-two{
+    position: absolute;
+    top: 42%;
+    left: 52%;
+    transform: translateX(-50%) rotate(-10deg) translateY(-50%);
+    border-radius: 5px;
+    padding: 0 5px;
+    color: var(--red) !important;
+    opacity: 1;
+    background-color: rgb(255,255,255 ,0.7);
+    z-index: 4;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 26px;
+    text-transform: uppercase;
+    border: 2px solid var(--red);
+    outline: 1px solid black;
+    margin: 0;
+    }
 
 </style>
 
@@ -1009,8 +1024,6 @@ padding: 8px;
            </div>
 
 
-<!--->
-
 
                  <div class="box cyan-all">
 
@@ -1030,9 +1043,11 @@ padding: 8px;
                          <p class="watermark">approved</p>
                        </div>
 
-                      <div class="round-signature">
-                         <p class="watermark-two">approved</p>
-                       </div>
+                      <div class="round-signature-container">
+                        <div class="round-signature"> </div>
+                        <p class="watermark-two">approved</p>
+                      </div>
+
                      </div>
 
 
@@ -1067,10 +1082,6 @@ padding: 8px;
 
 
 
-
-
-
-<!---->
            </div>
       </div>
     </div>
@@ -1099,7 +1110,7 @@ padding: 8px;
         </div>
 
         <div>
-          <label for="bio">Comments</label>
+          <label for="bio">Comments / Description</label>
           <textarea name="bio" id="bio" cols="30" rows="6"></textarea>
         </div>
 
