@@ -150,7 +150,7 @@ h2::after {
 	opacity: 0.8;
 }
 .carousel-control-prev:hover, .carousel-control-next:hover {
-	background: #78bf00;
+	background: #4FBDBA;
 	opacity: 1;
 }
 .carousel-control-prev i, .carousel-control-next i {
@@ -348,6 +348,8 @@ h2::after {
 
                 .disabled:hover{
                 cursor: not-allowed;
+                color: white;
+                background-color: lightgrey;
                 }
 
                 
@@ -536,5 +538,37 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div>
+
+<script>
+ 
+    $(document).ready(function () { 
+        checkitem();
+
+    });
+
+    $('#myCarousel').on('slid.bs.carousel', checkitem);
+
+    function checkitem() {
+         console.log("in checktim")
+        var $this = $('#myCarousel');
+        if ($('.carousel-inner .item:first').hasClass('active')) {
+              console.log("in if")
+            // Hide left arrow
+            $this.children('.carousel-control-prev').hide();
+            // But show right arrow
+            $this.children('.carousel-control-next').show();
+        } else if ($('.carousel-inner .item:last').hasClass('active')) {
+            console.log("in else if")
+            // Hide right arrow
+            $this.children('.carousel-control-next').hide();
+            // But show left arrow
+            $this.children('.carousel-control-prev').show();
+        } else {
+            console.log("in else")
+            $this.children('.carousel-control-prev').show();
+            $this.children('.carousel-control-next').show();
+        }
+    }
+</script>
 </body>
 </html>                                		
