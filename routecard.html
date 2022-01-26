@@ -18,6 +18,7 @@
   --line-border-empty: #e0e0e0;
 
     --red: #F8485E;
+    --purple: #5800FF;
     --cyan: hsl(180, 62%, 55%);
     --orange: hsl(34, 97%, 64%);
     --blue: hsl(212, 86%, 64%);
@@ -54,16 +55,25 @@ body{
   text-align: center;
 }
 
+.progress-container-wrapper{
+  background-color: #f6f7fb;
+  position: sticky;
+  padding-top: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+}
+
 .progress-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
-  position: relative;
   margin: auto;
-  margin-top: 30px;
   width: 90vw;
   overflow-x: scroll;
   overflow-x: hidden;
-  height: 130px;
+  height: 100px;
 }
 
 .progress-container::before {
@@ -231,21 +241,22 @@ background-color: #008B8B;
 }
 
 .card-container{
- height:100vh;
- height:90vh;
+ height: 100vh;
+ height: 100%;
  display: flex;
  padding-bottom: 0;
  margin-bottom: 20px;
+ margin-top: 30px;
 }
 
 .card-container .operations{
   flex: 3;
+  height: 100%;
 }
 
 .card-container .data{
   flex: 9;
   height: 100%;
-  overflow-y: auto;
 }
 
 
@@ -312,7 +323,7 @@ margin: 10px;
     border-top: 3px solid var(--orange);
 }
 /*--------------*/
-.step-info{
+          .step-info{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -483,17 +494,17 @@ transform: rotate(10deg);
   bottom: 0;
   opacity: 0.7;
   width: 100vw;
-  z-index: 6;
+  z-index: 9;
   display: none;
 }
 
 .finish-dialog{
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: start;
-  z-index: 7;
+  z-index: 10;
   border-radius: 12px;
   display: none;
 }
@@ -759,6 +770,21 @@ padding: 8px;
     margin: 0;
     }
 
+    .box .subcontractor{
+      border: 1px solid var(--purple);
+      color: var(--purple);
+      border-radius: 5px;
+      display: inline-block;
+      padding: 8px 14px;
+    }
+
+    #trapezoid {
+      border-bottom: 100px solid #18C973;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      height: 0;
+      width: 125px;
+    }
 </style>
 
 
@@ -779,28 +805,29 @@ padding: 8px;
 
 
     <div class="container">
-      <div class="progress-container">
-        <div class="progress" id="progress"></div>
-        <div class="circle active">1 <span>Shot peen</span></div>
-        <div class="circle current-circle">2 <span>Clean part</span></div>
-        <div class="circle">3 <span>GTAW welding</span></div>
-        <div class="circle">4 <span>Heat treat</span></div>
-        <div class="circle">5 <span>Metalugraphic evaluation</span></div>
-        <div class="circle">6 <span>Assembly</span></div>
-        <div class="circle">7 <span>Plasma coating</span></div>
-        <div class="circle">8 <span>Service approval</span></div>
-        <div class="circle">9 <span>-</span></div>
-        <div class="circle">10 <span>-</span></div>
-        <div class="circle">11 <span>-</span></div>
-        <div class="circle">12 <span>-</span></div>
-        <div class="circle">13 <span>-</span></div>
-        <div class="circle">14 <span>-</span></div>
-        <div class="circle">15 <span>-</span></div>
-        <div class="circle">16 <span>-</span></div>
-        <div class="circle">17 <span>-</span></div>
-        <div class="circle">18 <span>-</span></div>
-
-      </div>
+      <div class="progress-container-wrapper">
+        <div class="progress-container">
+            <div class="progress" id="progress"></div>
+            <div class="circle active">1 <span>Shot peen</span></div>
+            <div class="circle current-circle">2 <span>Clean part</span></div>
+            <div class="circle">3 <span>GTAW welding</span></div>
+            <div class="circle">4 <span>Heat treat</span></div>
+            <div class="circle">5 <span>Metalugraphic evaluation</span></div>
+            <div class="circle">6 <span>Plasma coating</span></div>
+            <div class="circle">7 <span>Assembly</span></div>
+            <div class="circle">8 <span>Service approval</span></div>
+            <div class="circle">9 <span>-</span></div>
+            <div class="circle">10 <span>-</span></div>
+            <div class="circle">11 <span>-</span></div>
+            <div class="circle">12 <span>-</span></div>
+            <div class="circle">13 <span>-</span></div>
+            <div class="circle">14 <span>-</span></div>
+            <div class="circle">15 <span>-</span></div>
+            <div class="circle">16 <span>-</span></div>
+            <div class="circle">17 <span>-</span></div>
+            <div class="circle">18 <span>-</span></div>
+        </div>
+  </div>
 
       <div class="card-container">
           <div class="operations">
@@ -814,6 +841,12 @@ padding: 8px;
     <!--  <img src="https://assets.codepen.io/2301174/icon-team-builder.svg" alt="">  -->
     </div>
 
+    <div class="box black side">
+      <h3>Spec & W.O</h3>
+      <p>Work order: 5326536</p>
+      <p>Material: Inconel 718</p>
+      <p>Drawing: <a href="#">Part drawing</a></p>
+    </div>
 
       <div class="box black side">
        <h3>Current location</h3>
@@ -938,10 +971,10 @@ padding: 8px;
                 </div>
 
                  <div class="box red">
-                         <button class="btn btn-action up-position tooltip" id="strBtn">START
+                         <button class="btn btn-action up-position tooltip" onclick="openStartDialog()" id="strBtn">START
                            <span class="tooltiptext">Machine Expiration date has passed</span>
                        </button>
-                       <div class="numberCircle">OP 3</div>
+                       <div class="numberCircle  dash-nine">OP 3</div>
                        <h3>GTAW welding</h3>
                        <p>Work center: 12824</p>
                        <p>Fill crack with AMS 5830 weild wire GTAW welding</p>
@@ -978,7 +1011,7 @@ padding: 8px;
                        <div class="numberCircle">OP 4</div>
                        <h3>Heat treat</h3>
                        <p>Work center: 12826</p>
-                       <p>Prefoem heat treatment per HTR 112534</p>
+                       <p>Prefoem heat treatment per <a href="">HTR 112534</a> </p>
 
                      <!--  <button class="btn btn-lab" id="open-ps"><a href="">Filler wire batch</a></button>-->
 
@@ -1004,13 +1037,13 @@ padding: 8px;
                     <button class="btn btn-action up-position tooltip" id="strBtn3">START
                            <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
                        </button>
-                  <div class="numberCircle dash-nine">OP 5</div>
+                  <div class="numberCircle">OP 5</div>
                   <h3>Metallugraphic evaluation</h3>
                   <p>Work center: 11824</p>
                   <p>Metallugraphic evaluation according to..</p>
                  <!-- <button class="btn btn-lab" id="open-ps"><a href="">Lab results</a></button>-->
 
-                  <hr class="divider">
+                   <hr class="divider">
                    <div class="step-info">
                            <div class="creation-info">
                              <div class="contact-line">
@@ -1019,9 +1052,30 @@ padding: 8px;
                              </div>
 
                         </div>
+                   </div>
+               </div>
 
-                     </div>
-           </div>
+               <div class="box red">
+                   <button class="btn btn-action up-position tooltip" id="strBtn4">START
+                          <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
+                      </button>
+                 <div class="numberCircle">OP 6</div>
+                 <h3>Remove plasma coating</h3>
+                 <p class="subcontractor">Work center: BET SHEMESH ENGINED subcontractor</p>
+                 <p>Remove plasma coating from the marked areas per <a href="">WJS 11235344</a> </p>
+                <!-- <button class="btn btn-lab" id="open-ps"><a href="">Lab results</a></button>-->
+
+                  <hr class="divider">
+                  <div class="step-info">
+                          <div class="creation-info">
+                            <div class="contact-line">
+                              <i class="fas fa-hourglass-half contact-icon"></i>
+                              <p>2.5 Hr</p>
+                            </div>
+
+                       </div>
+                  </div>
+              </div>
 
 
 
@@ -1047,6 +1101,8 @@ padding: 8px;
                         <div class="round-signature"> </div>
                         <p class="watermark-two">approved</p>
                       </div>
+
+                    <!--   <div id="trapezoid"></div>-->
 
                      </div>
 
@@ -1099,6 +1155,7 @@ padding: 8px;
             <option value="pass">Pass</option>
             <option value="fail">Fail</option>
             <option value="exception">Exception</option>
+            <option value="for info">Sent to subcontractor</option>
             <option value="invalid">Invalid</option>
             <option value="for info">For information</option>
           </select>
@@ -1125,6 +1182,38 @@ padding: 8px;
           <div>
             <button class="blue" type="submit">Connect</button>
             <button id="submitBtn" type="" onclick="closeDialog()">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-------------------start dialog---------------------------------->
+
+    <div id="input-dialog-start" class="box red finish-dialog">
+     <!-- <form action="results.html" method="GET" enctype="multipart/form-data">-->
+      <div class="form">
+        <h2>Start step</h2>
+        <div>
+          <label for="color">Work center</label>
+          <select name="color" id="color">
+            <option value="pass">MRO</option>
+            <option value="invalid">IAI other</option>
+            <option value="for info">Sent to subcontractor</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="comments">Operator</label>
+          <input type="text" name="comments" id="comments" placeholder="swipe your id card">
+        </div>
+
+
+        <div class="btn-div">
+
+          <div>
+            <button class="blue" type="" onclick="closeStartDialog()">Cancel</button>
+            <button id="submitBtn" type="" onclick="closeStartDialog()">Submit</button>
           </div>
         </div>
 
@@ -1162,6 +1251,7 @@ const inputDialogBackground = document.getElementById('input-dialog-background')
 const inputDialog = document.getElementById('input-dialog')
 const passwordDialog = document.querySelector('#password-dialog')
 const submitBtn = document.getElementById('submitBtn')
+const startDialog = document.querySelector("#input-dialog-start")
 
 const progress = document.getElementById('progress')
 //const prev = document.getElementById('prev')
@@ -1171,6 +1261,7 @@ const finishStep = document.getElementById('finBtn')
 const startStep = document.getElementById('strBtn')
 const startStep2 = document.getElementById('strBtn2')
 const startStep3 = document.getElementById('strBtn3')
+const startStep4 = document.getElementById('strBtn4')
 const circles = document.querySelectorAll('.circle')
 const stepBox = document.getElementById('current-step')
 const activeCard = document.querySelector('.active-card-scroll-top')
@@ -1189,7 +1280,6 @@ function findActiveCard(){
   }
 }
 
-console.log(activeCard1)
 
 
 function moveActiveCard(){
@@ -1197,7 +1287,8 @@ function moveActiveCard(){
     operationCards[activeCard1].classList.remove("active-card-scroll-top");
     activeCard1 = activeCard1+1;
     operationCards[activeCard1].classList.add("active-card-scroll-top");
-    operationCards[activeCard1].scrollIntoView();
+    //operationCards[activeCard1].scrollIntoView();
+    scrollCardToView(activeCard1);
   }
 }
 
@@ -1208,11 +1299,18 @@ window.onload = function () {
   document.body.querySelector('.operations h3').innerHTML = queryStringArray[2];
 
   //show current station card on top
-  activeCard.scrollIntoView();
+  for(i=0;i<operationCards.length;i++){
+    if(operationCards[i].classList.contains("active-card-scroll-top")){
+      break;
+    }
+  }
+//  activeCard.scrollIntoView();
+  scrollCardToView(i+1);
 }
 
 
 let currentActive = 1
+startStep4.disabled = true
 startStep3.disabled = true
 startStep2.disabled = true
 startStep.disabled = true
@@ -1225,10 +1323,19 @@ for (var i = 0, len = g.children.length; i < len; i++){
     (function(index){
         g.children[i].onclick = function(){
           if(index< operationCards.length+1){
-            operationCards[index-1].scrollIntoView();
+            //operationCards[index-1].scrollIntoView();
+
+           scrollCardToView(index);
           }
         }
     })(i);
+}
+
+function scrollCardToView(index){
+  const yOffset = -120;
+  const y = operationCards[index-1].getBoundingClientRect().top + window.pageYOffset + yOffset;
+  console.log(y)
+  window.scrollTo({top: y, behavior: 'smooth'});
 }
 
 
@@ -1246,15 +1353,20 @@ submitBtn.addEventListener('click', () => {
     startStep.disabled = false
 })
 
+/*
 startStep.addEventListener('click', () => {
-    currentActive--
+  backStep()
+})*/
 
-    if(currentActive < 0) {
-        currentActive = 0
-    }
+function backStep(){
+  currentActive--
 
-    update()
-})
+  if(currentActive < 0) {
+      currentActive = 0
+  }
+
+  update()
+}
 
 editBtn.addEventListener('click', () => {
   openPasswordDialog('Edit Route Card')
@@ -1271,10 +1383,23 @@ function openPasswordDialog(title){
   passwordDialog.querySelector('h2').innerText = title;
 }
 
+function openStartDialog(){
+  inputDialogBackground.style.display = "flex";
+  startDialog.style.display = "flex";
+}
+
+function closeStartDialog(){
+  inputDialogBackground.style.display = "none";
+  startDialog.style.display = "none";
+
+  backStep();
+}
+
 function openDialog(){
   inputDialogBackground.style.display = "flex";
   inputDialog.style.display = "flex";
 }
+
 
 function closeDialog(){
   inputDialogBackground.style.display = "none";
