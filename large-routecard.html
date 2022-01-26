@@ -44,7 +44,7 @@
 body {
 	background: #e2eaef;
 	font-family: "Open Sans", sans-serif;
-        padding: 20px 30px 0 30px;
+  padding: 20px 30px 0 30px;
 }
 h2 {
 	color: #000;
@@ -340,9 +340,18 @@ h2::after {
                font-family: 'Libre Barcode 39', cursive;
                font-family: 'Libre Barcode 128', cursive;
                font-size: 5rem;
-               margin: 20px 20px 60px 20px;
+               margin: 0 20px 60px 20px;
                height: 60px;
+
                }
+
+               #cardbarcode::before{
+                font-family: "Open Sans", sans-serif;
+                content: "Location";
+                font-size: 14px;
+                margin-top: 40px;
+                display: block;
+                }
 
                .disabled{
                 cursor: not-allowed;
@@ -456,7 +465,7 @@ $(document).ready(function(){
          </div>-->
 
           <div class="box black side">
-          <h3>Creation & Revisions</h3>
+          <h3>Revision B</h3>
           <!--<p>Revision: B</p>
           <p>Created by: Slav leonid</p>
           <p>Created On: 12/03/2012</p>-->
@@ -485,6 +494,7 @@ $(document).ready(function(){
 								  <div class="numberCircle">OP 2</div>
 
                         <h3>GTAW WELDING</h3>
+                        <p>Work order: 1248774824</p>
                         <p>Work center: 12824</p>
                         <p class="instructions">Fill crack with AMS 5830 weild wire GTAW welding</p>
                         <p class="boldText">Remember to log the Filler wire batch you used!</p>
@@ -538,6 +548,7 @@ $(document).ready(function(){
 								  <div class="numberCircle">OP 3</div>
 
                           <h3>Heat treat</h3>
+                          <p>Work order: 1248774824</p>
                           <p>Work center: 12826</p>
                           <p class="instructions">Prefoem heat treatment per <a href="">HTR 112534</a></p>
                           <p class="boldText">Log heat treat cycle!</p>
@@ -575,6 +586,7 @@ $(document).ready(function(){
 								  <div class="numberCircle">OP 4</div>
 
                           <h3>SHOT PEEN</h3>
+                          <p>Work order: 1248774824</p>
                           <p>Work center: 12826</p>
                           <p class="instructions">Shot peen marked area on part according to process sheet: <a href="">SSP-1120763</a>, <a href="">72-09-36 Rep 01</a></p>
                           <p class="boldText">Remember to log the Almen intensity!</p>
