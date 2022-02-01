@@ -11,7 +11,7 @@
 
 body{
 	margin:0px;
-	padding:0px;	
+	padding:0px;
 	font-family: 'Readex Pro';
 }
 a{
@@ -34,7 +34,7 @@ a{
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
- 
+
 }
 .login-inputs h1{
 	color: #fff;
@@ -43,7 +43,7 @@ a{
 	margin:10px;
 	text-transform: uppercase;
 	text-shadow: 2px 2px 30px rgba(0,0,0,0.2);
-	
+
 }
 .login-inputs form{
 	background-color: #23243c;
@@ -92,8 +92,8 @@ a{
 	color:#fff;
 	font-size:13px;
 	letter-spacing: 1px;
-        text-align: center;  
-        padding: 10px 5px 10px 5px;   
+        text-align: center;
+        padding: 10px 5px 10px 5px;
 }
 
 .login-inputs form .button:hover{
@@ -145,10 +145,10 @@ text-align: center;
 	<input placeholder="Password" type="password" />
 
          <select id="userSelect">
-    <option value="1">Operator</option>
-    <option value="2">Supervisor</option>
-    <option value="3">Engineering</option>
-    <option value="4">Quality control</option>
+			    <option value="1">Operator</option>
+			    <option value="2">Supervisor</option>
+			    <option value="3">Engineering</option>
+			    <option value="4">Quality control</option>
         </select>
 
 	<a id="loginBtn" class="button" href="">ENTER</a>
@@ -159,23 +159,29 @@ text-align: center;
 
 <script>
 
-const tag = document.getElementById("loginBtn");
+const roles = ["Operator","Supervisor","Engineering","Quality control"];
+const tagBtn = document.getElementById("loginBtn");
 var user = document.getElementById("userSelect");
 user.value = 1;
 
-tag.addEventListener("click", function(event) {
+tagBtn.addEventListener("click", function(event) {
   event.preventDefault()
 
   strUser = user.value;
   console.log(strUser)
 
+ /*
 if(strUser == 1){
   console.log("inside if")
   window.open("large-routecard.html","_self");
 }else{
   console.log("inside else")
   window.open("parts table.html","_self");
-}
+}*/
+
+
+ const info = roles[strUser-1]
+ location.href = "parts table.html?" + info;
 
 });
 
