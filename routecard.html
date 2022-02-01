@@ -18,7 +18,6 @@
   --line-border-empty: #e0e0e0;
 
     --red: #F8485E;
-    --purple: #5800FF;
     --cyan: hsl(180, 62%, 55%);
     --orange: hsl(34, 97%, 64%);
     --blue: hsl(212, 86%, 64%);
@@ -490,10 +489,10 @@ transform: rotate(10deg);
   position: absolute;
   background-color: #3A3B3C;
   left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
   opacity: 0.7;
-  width: 100vw;
   z-index: 9;
   display: none;
 }
@@ -602,6 +601,71 @@ transform: rotate(10deg);
 .finish-dialog .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
+
+  /*--------------cladding dialog---------*/
+
+  #input-dialog-cladding input{
+    width: 250px;
+    font-size: 15px;
+    margin: 0;
+    border-radius: 3px;
+    border: 1px solid black;
+  }
+
+  #input-dialog-cladding label{
+    margin-bottom: 6px;
+  }
+
+  #input-dialog-cladding table{
+    display: table;
+    width: 500px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border-bottom: : 1px solid blue;
+    border-radius: 5px;
+  }
+
+  #input-dialog-cladding table tr:last-child{
+       border-bottom: 1px solid var(--blue);
+    }
+
+  #input-dialog-cladding table td{
+  text-align: center;
+  padding: 12px 16px;
+  }
+
+  #input-dialog-cladding table th{
+    padding: 12px 16px;
+    text-align: center;
+    background-color: var(--blue);
+  }
+
+  #input-dialog-cladding table tr:nth-child(odd){background-color: #f2f2f2;}
+
+  #input-dialog-cladding table input[type='checkbox']{
+  width: 30px;
+  }
+
+  #input-dialog-cladding .table_cell{
+  display:block;
+  }
+
+
+  #input-dialog-cladding .table_cell.req{
+  text-align: start;
+  }
+
+  #input-dialog-cladding h3{
+    margin: 32px 0 6px 0;
+  }
+
+  #input-dialog-cladding p{
+    margin: 0 0 4px 0;
+    font-size: 14px;
+  }
+
+  /*--------------cladding dialog---------*/
 
   /*-------------navbar----------------*/
 
@@ -770,14 +834,6 @@ padding: 8px;
     margin: 0;
     }
 
-    .box .subcontractor{
-      border: 1px solid var(--purple);
-      color: var(--purple);
-      border-radius: 5px;
-      display: inline-block;
-      padding: 8px 14px;
-    }
-
     #trapezoid {
       border-bottom: 100px solid #18C973;
       border-left: 40px solid transparent;
@@ -814,8 +870,8 @@ padding: 8px;
             <div class="circle">4 <span>Heat treat</span></div>
             <div class="circle">5 <span>Metalugraphic evaluation</span></div>
             <div class="circle">6 <span>Plasma coating</span></div>
-            <div class="circle">7 <span>Assembly</span></div>
-            <div class="circle">8 <span>Service approval</span></div>
+            <div class="circle">7 <span>Service approval</span></div>
+            <div class="circle">8 <span>-</span></div>
             <div class="circle">9 <span>-</span></div>
             <div class="circle">10 <span>-</span></div>
             <div class="circle">11 <span>-</span></div>
@@ -971,7 +1027,7 @@ padding: 8px;
                 </div>
 
                  <div class="box red">
-                         <button class="btn btn-action up-position tooltip" onclick="openStartDialog()" id="strBtn">START
+                         <button class="btn btn-action up-position tooltip" id="strBtn">START
                            <span class="tooltiptext">Machine Expiration date has passed</span>
                        </button>
                        <div class="numberCircle  dash-nine">OP 3</div>
@@ -1011,7 +1067,7 @@ padding: 8px;
                        <div class="numberCircle">OP 4</div>
                        <h3>Heat treat</h3>
                        <p>Work center: 12826</p>
-                       <p>Prefoem heat treatment per <a href="">HTR 112534</a> </p>
+                       <p>Prefoem heat treatment per HTR 112534</p>
 
                      <!--  <button class="btn btn-lab" id="open-ps"><a href="">Filler wire batch</a></button>-->
 
@@ -1034,16 +1090,16 @@ padding: 8px;
                 </div>
 
                 <div class="box red">
-                    <button class="btn btn-action up-position tooltip" id="strBtn3">START
+                    <button class="btn btn-action-end up-position tooltip" onclick="openCladdingDialog()" id="strBtn3">FINISH
                            <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
-                       </button>
+                    </button>
                   <div class="numberCircle">OP 5</div>
                   <h3>Metallugraphic evaluation</h3>
                   <p>Work center: 11824</p>
-                  <p>Metallugraphic evaluation according to..</p>
+                  <p>Metallugraphic evaluation of laser cladding according to..</p>
                  <!-- <button class="btn btn-lab" id="open-ps"><a href="">Lab results</a></button>-->
 
-                   <hr class="divider">
+                  <hr class="divider">
                    <div class="step-info">
                            <div class="creation-info">
                              <div class="contact-line">
@@ -1052,31 +1108,31 @@ padding: 8px;
                              </div>
 
                         </div>
-                   </div>
-               </div>
 
-               <div class="box red">
-                   <button class="btn btn-action up-position tooltip" id="strBtn4">START
-                          <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
-                      </button>
-                 <div class="numberCircle">OP 6</div>
-                 <h3>Remove plasma coating</h3>
-                 <p class="subcontractor">Work center: BET SHEMESH ENGINED subcontractor</p>
-                 <p>Remove plasma coating from the marked areas per <a href="">WJS 11235344</a> </p>
-                <!-- <button class="btn btn-lab" id="open-ps"><a href="">Lab results</a></button>-->
+                     </div>
+                 </div>
 
-                  <hr class="divider">
-                  <div class="step-info">
-                          <div class="creation-info">
-                            <div class="contact-line">
-                              <i class="fas fa-hourglass-half contact-icon"></i>
-                              <p>2.5 Hr</p>
-                            </div>
+                 <div class="box red">
+                     <button class="btn btn-action up-position tooltip" id="strBtn4">START
+                            <span class="tooltiptext">Previous step must be signed & closed before continuing to this step</span>
+                        </button>
+                   <div class="numberCircle">OP 6</div>
+                   <h3>Remove plasma coating</h3>
+                   <p class="subcontractor">Work center: BET SHEMESH ENGINED subcontractor</p>
+                   <p>Remove plasma coating from the marked areas per <a href="">WJS 11235344</a> </p>
+                  <!-- <button class="btn btn-lab" id="open-ps"><a href="">Lab results</a></button>-->
 
-                       </div>
-                  </div>
-              </div>
+                    <hr class="divider">
+                    <div class="step-info">
+                            <div class="creation-info">
+                              <div class="contact-line">
+                                <i class="fas fa-hourglass-half contact-icon"></i>
+                                <p>2.5 Hr</p>
+                              </div>
 
+                         </div>
+                    </div>
+                </div>
 
 
                  <div class="box cyan-all">
@@ -1155,7 +1211,6 @@ padding: 8px;
             <option value="pass">Pass</option>
             <option value="fail">Fail</option>
             <option value="exception">Exception</option>
-            <option value="for info">Sent to subcontractor</option>
             <option value="invalid">Invalid</option>
             <option value="for info">For information</option>
           </select>
@@ -1188,38 +1243,6 @@ padding: 8px;
       </div>
     </div>
 
-    <!-------------------start dialog---------------------------------->
-
-    <div id="input-dialog-start" class="box red finish-dialog">
-     <!-- <form action="results.html" method="GET" enctype="multipart/form-data">-->
-      <div class="form">
-        <h2>Start step</h2>
-        <div>
-          <label for="color">Work center</label>
-          <select name="color" id="color">
-            <option value="pass">MRO</option>
-            <option value="invalid">IAI other</option>
-            <option value="for info">Sent to subcontractor</option>
-          </select>
-        </div>
-
-        <div>
-          <label for="comments">Operator</label>
-          <input type="text" name="comments" id="comments" placeholder="swipe your id card">
-        </div>
-
-
-        <div class="btn-div">
-
-          <div>
-            <button class="blue" type="" onclick="closeStartDialog()">Cancel</button>
-            <button id="submitBtn" type="" onclick="closeStartDialog()">Submit</button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
     <!--------------edit dialog-------------------->
 
     <div id="password-dialog" class="box blue finish-dialog">
@@ -1245,13 +1268,86 @@ padding: 8px;
        </div>
      </div>
 
+     <!-------------------cladding dialog---------------------------------->
+
+     <div id="input-dialog-cladding" class="box red finish-dialog">
+      <!-- <form action="results.html" method="GET" enctype="multipart/form-data">-->
+       <div class="form">
+         <h2>Laser cladding</h2>
+         <div>
+           <label for="color">campaign</label>
+           <select name="color" id="color">
+             <option value="pass">Start</option>
+             <option value="invalid">End</option>
+           </select>
+         </div>
+
+         <div>
+           <label for="comments">Engineer</label>
+           <input type="text" name="comments" id="comments" placeholder="Operator">
+         </div>
+
+         <h3>Metallugraphic test results</h3>
+         <table>
+           <thead>
+             <tr>
+               <th>Requirment</th>
+               <th>PASS</th>
+               <th>FAIL</th>
+               <th>NA</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td><div class="table_cell req">Sections 1, 2, 3, 4, 5, 6</div></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td><div class="table_cell req">Max dimension (Porosity or Crack), 0.039 inch (1mm)</div></td>
+               <td><div class="table_cell"><input type="checkbox" value="Bike"></div></td>
+               <td><div class="table_cell"><input type="checkbox" value="Bike"></div></td>
+               <td><div class="table_cell"><input type="checkbox" value="Bike"></div></td>
+             </tr>
+             <tr>
+               <td><div class="table_cell req">Sections 7, 8</div></td>
+               <td></td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <td><div class="table_cell req">Max dimension (Porosity or Crack), 0.059 inch (1.5mm)</div></td>
+               <td><div class="table_cell"><input type="checkbox" value="Bike"></div></td>
+               <td><div class="table_cell"><input type="checkbox" value="Bike"></div></td>
+               <td><div class="table_cell"><input type="checkbox" value="Bike"></div></td>
+             </tr>
+           </tbody>
+         </table>
+         <p>* Min dimension to consider(Porosity or Crack), >0.0118 inch (0.3mm).</p>
+         <p>* Min spacing between 2 indications, 2 X largest indication dimension.</p>
+
+
+         <div class="btn-div">
+
+           <div>
+             <button class="blue" type="" onclick="closeCladdingDialog()">Cancel</button>
+             <button id="submitBtn" type="" onclick="closeCladdingDialog()">Submit</button>
+           </div>
+         </div>
+
+       </div>
+     </div>
+
+     <!--------------edit dialog-------------------->
+
     <script>
 
 const inputDialogBackground = document.getElementById('input-dialog-background')
 const inputDialog = document.getElementById('input-dialog')
 const passwordDialog = document.querySelector('#password-dialog')
+const claddingDialog = document.querySelector('#input-dialog-cladding')
 const submitBtn = document.getElementById('submitBtn')
-const startDialog = document.querySelector("#input-dialog-start")
 
 const progress = document.getElementById('progress')
 //const prev = document.getElementById('prev')
@@ -1311,7 +1407,7 @@ window.onload = function () {
 
 let currentActive = 1
 startStep4.disabled = true
-startStep3.disabled = true
+//startStep3.disabled = true
 startStep2.disabled = true
 startStep.disabled = true
 
@@ -1353,24 +1449,29 @@ submitBtn.addEventListener('click', () => {
     startStep.disabled = false
 })
 
-/*
 startStep.addEventListener('click', () => {
-  backStep()
-})*/
+    currentActive--
 
-function backStep(){
-  currentActive--
+    if(currentActive < 0) {
+        currentActive = 0
+    }
 
-  if(currentActive < 0) {
-      currentActive = 0
-  }
-
-  update()
-}
+    update()
+})
 
 editBtn.addEventListener('click', () => {
   openPasswordDialog('Edit Route Card')
 })
+
+function closeCladdingDialog(){
+  inputDialogBackground.style.display = "none";
+  claddingDialog.style.display = "none";
+}
+
+function openCladdingDialog(){
+  inputDialogBackground.style.display = "flex";
+  claddingDialog.style.display = "flex";
+}
 
 function closePasswordDialog(){
   inputDialogBackground.style.display = "none";
@@ -1383,23 +1484,10 @@ function openPasswordDialog(title){
   passwordDialog.querySelector('h2').innerText = title;
 }
 
-function openStartDialog(){
-  inputDialogBackground.style.display = "flex";
-  startDialog.style.display = "flex";
-}
-
-function closeStartDialog(){
-  inputDialogBackground.style.display = "none";
-  startDialog.style.display = "none";
-
-  backStep();
-}
-
 function openDialog(){
   inputDialogBackground.style.display = "flex";
   inputDialog.style.display = "flex";
 }
-
 
 function closeDialog(){
   inputDialogBackground.style.display = "none";
